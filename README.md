@@ -19,7 +19,11 @@ The first ever cutscene introduced into a game, was in 1966, in The Sumerian Gam
 
 Later in 1979, in Space Invaders Part 2, there wwere introduced some short cutscenes about intermissions between levels. Pac-Man (1980) also did the same thing.
 
+It wasn't until 1983, that a similar cutscene  to the ones we know today was introduced in Bega's Battle. It introduced some full-motion video cutscenes between shooting stages, which was normalized years later.
 
+Finally, non-interactive plot sequences were added in Maniac Mansion (1987), introducing a whole new concept to videogames which ended up being followed by all future games until today.
+
+Also, with the creation of CD-ROMs as the new storage for videogames, all the videogames developers were able to start making much higher quality games.
 
 ## Selected approach
 
@@ -36,3 +40,4 @@ Later in 1979, in Space Invaders Part 2, there wwere introduced some short cutsc
 ## Documentation
 
 - [CUTSCENES TYPES](https://www.giantbomb.com/cutscene/3015-22/)
+- [CUTSCENES HISTOY VIDEO](https://www.youtube.com/watch?v=tZKxQ5-DtVA)
