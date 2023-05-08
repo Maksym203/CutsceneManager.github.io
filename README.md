@@ -27,7 +27,7 @@ Also, with the creation of CD-ROMs as the new storage for videogames, all the vi
 
 ## Selected approach
 
-I have obviously selected to code the CutsceneManager like a In-Engine cutscene manager, as currently we don't have the resources to makeeither a Pre-Rendered or a Live-Action cutscene and it's also the prefer approach for most developers, not to mention it's the easiest way by far.
+I have obviously selected to code the CutsceneManager like a In-Engine cutscene manager, as currently we don't have the resources to make either a Pre-Rendered or a Live-Action cutscene and it's also the prefer approach for most developers, not to mention it's the easiest way by far.
 
 ### Obstacles
 
