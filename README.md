@@ -7,7 +7,9 @@ The main three types of cutscenes are these: In-Engine, Pre-Rendered and Live-Ac
 
 * In-Engine: These are the easiest and cheapest cutscenes to make, as you will be using already-made-assets from the game. But at the same time, they can be the most problematic, since all assets and characters should have high resolution and it would require some extensive coding.
 
-* Pre-Rendered: 
+* Pre-Rendered: Pre-Rendered cutscenes are the highest quality cutscenes, nearly like a cinematic. They are usually made by animation companies external to the videogame company itself and take so much time to make that only a few can be made during the whole production of the videogame.
+
+* Live-Action: Live-Action cutscenes use real actors and green screens to film them and then digitalize them and add special effects later, making them much cheaper thatn the Pre-Rendered ones and also much more viable time-wise.
 
 ## History
 
