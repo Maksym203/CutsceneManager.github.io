@@ -18,7 +18,7 @@ Cutscenes in videogames were almost born at the same time as the videogames them
 The first ever cutscene introduced into a game, was in 1966, in The Sumerian Game which was an early mainframe game. It wasn't exactly a in-game cutscene, as they used a slideshow with some syncronized audio, making a cutscene that was unskippable.
 
 Later in 1979, in Space Invaders Part 2, there wwere introduced some short cutscenes about intermissions between levels. Pac-Man (1980) also did the same thing.
-![](https://www.bing.com/images/search?view=detailV2&ccid=sbiWzaKd&id=E752B48831398BD131127AF112139AA1942A1469&thid=OIP.sbiWzaKdLo3w6X_6vBDqbQAAAA&mediaurl=https%3a%2f%2fwww.mobygames.com%2fimages%2fshots%2fl%2f652602-space-invaders-part-ii-arcade-screenshot-starting-out-space.png&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.b1b896cda29d2e8df0e97ffabc10ea6d%3frik%3daRQqlKGaExLxeg%26pid%3dImgRaw%26r%3d0&exph=260&expw=224&q=Space+invaders+part+2&simid=607992139213528724&FORM=IRPRST&ck=1F5A6C254002F69CDA663A0E0306620C&selectedIndex=1&ajaxhist=0&ajaxserp=0)
+
 It wasn't until 1983, that a similar cutscene  to the ones we know today was introduced in Bega's Battle. It introduced some full-motion video cutscenes between shooting stages, which was normalized years later.
 
 Finally, non-interactive plot sequences were added in Maniac Mansion (1987), introducing a whole new concept to videogames which ended up being followed by all future games until today.
@@ -27,17 +27,22 @@ Also, with the creation of CD-ROMs as the new storage for videogames, all the vi
 
 ## Selected approach
 
+I have obviously selected to code the CutsceneManager like a In-Engine cutscene manager, as currently we don't have the resources to makeeither a Pre-Rendered or a Live-Action cutscene and it's also the prefer approach for most developers, not to mention it's the easiest way by far.
+
+### Obstacles
+
+
 
 ## Possible improvements
 
 
-## Examples
-
 
 ## Conclusion
 
+In conclusion, for most videogames a basic In-Engine cutscene manager is more than enough, since most games don't include many cutscenes. In case your game does use a lot of different cutscenes, it would be a great idea to work a lot on making one that has many different options so that many cutscenes can be made with barely any effort put in once the manager is done.
 
 ## Documentation
 
 - [CUTSCENES TYPES](https://www.giantbomb.com/cutscene/3015-22/)
+- [CUTSCENES HISTORY](https://en.wikipedia.org/wiki/Cutscene)
 - [CUTSCENES HISTORY VIDEO](https://www.youtube.com/watch?v=tZKxQ5-DtVA)
