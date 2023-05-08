@@ -5,7 +5,7 @@ Cutscenes are non-interactive sequences which usually are the first thing we see
 
 The main three types of cutscenes are these: In-Engine, Pre-Rendered and Live-Action.
 
-·
+* In-Engine:
 
 ## History
 
