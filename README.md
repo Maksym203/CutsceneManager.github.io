@@ -5,7 +5,9 @@ Cutscenes are non-interactive sequences which usually are the first thing we see
 
 The main three types of cutscenes are these: In-Engine, Pre-Rendered and Live-Action.
 
-* In-Engine:
+* In-Engine: These are the easiest and cheapest cutscenes to make, as you will be using already-made-assets from the game. But at the same time, they can be the most problematic, since all assets and characters should have high resolution and it would require some extensive coding.
+
+* Pre-Rendered: 
 
 ## History
 
