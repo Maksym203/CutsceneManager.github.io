@@ -23,7 +23,9 @@ The main three types of cutscenes are these: In-Engine, Pre-Rendered and Live-Ac
 ## Examples
 
 
+## Conclusion
+
+
 ## Documentation
 
-
-## Conclusions
+- [CUTSCENES TYPES](https://www.giantbomb.com/cutscene/3015-22/)
