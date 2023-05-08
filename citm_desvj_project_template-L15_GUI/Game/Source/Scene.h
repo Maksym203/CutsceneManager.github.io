@@ -38,6 +38,10 @@ public:
 	// Define multiple Gui Event methods
 	bool OnGuiMouseClickEvent(GuiControl* control);
 
+	void StartCutscene(int x, int y, bool bordered, bool tp, int speed);
+
+	void EndCutscene();
+	
 public:
 
 	//L02: DONE 3: Declare a Player attribute 
@@ -52,7 +56,9 @@ private:
 	iPoint origin;
 	bool originSelected = false;
 
-	// L15: TODO 2: Declare a GUI Button and create it using the GuiManager
+	//Cutscene
+	bool CutsceneStarted = false;
+	int fading = 0;
 
 };
 
