@@ -40,4 +40,4 @@ Also, with the creation of CD-ROMs as the new storage for videogames, all the vi
 ## Documentation
 
 - [CUTSCENES TYPES](https://www.giantbomb.com/cutscene/3015-22/)
-- [CUTSCENES HISTOY VIDEO](https://www.youtube.com/watch?v=tZKxQ5-DtVA)
+- [CUTSCENES HISTORY VIDEO](https://www.youtube.com/watch?v=tZKxQ5-DtVA)
