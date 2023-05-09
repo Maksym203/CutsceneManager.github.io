@@ -149,13 +149,7 @@ bool Scene::Update(float dt)
 
 	//Border animation to finish cutscene
 	if (FinishCutsceneAux == true) {
-		if (BorderOffset > 0) {
-			BorderOffset -= 2;
-			if (BorderOffset <= 0) {
-				BorderOffset = 0;
-				EndCutscene();
-			}
-		}
+		// TODO 4: Make the borders go away each frame using the BorderOffset variable
 	}
 
 	if (CutsceneStarted == true) {
@@ -163,32 +157,13 @@ bool Scene::Update(float dt)
 		if (Bordered == true && TP == false) {
 			app->render->DrawRectangle({ -app->render->camera.x, -app->render->camera.y - 100 + BorderOffset,1280,100 }, 0, 0, 0);
 			app->render->DrawRectangle({ -app->render->camera.x, -app->render->camera.y + 720 - BorderOffset,1280,100 }, 0, 0, 0);
-			if (BorderOffset < 100) {
-				BorderOffset += 2;
-				if (BorderOffset >= 100) {
-					BorderOffset = 100;
-					BorderAnimation = true;
-				}
-			}
+			//TODO 2: Move the borders each frame using the BorderOffset variable, caping it at 100
+
 		}
 		if (TP == true) {
 			app->render->DrawRectangle({ -app->render->camera.x, -app->render->camera.y,1280,1280 }, 0, 0, 0, fading);
-			if (fading < 255 && FadeIn == false) {
-				fading += 5;
-				if (fading >= 255 ) {
-					fading = 255;
-					app->render->camera.x = X;
-					app->render->camera.y = Y;
-					FadeIn = true;
-				}
-			}
-			if (fading > 0 && FadeIn == true) {
-				fading -= 5;
-				if (fading <= 0) {
-					fading = 0;
-					TP = false;
-				}
-			}
+			//TODO 1: Create a Fade In and Fade out screen and teleport the camera there, then set TP variable to false
+
 		}
 		//If border animation is done or if theres no border, execute this
 		if (BorderAnimation == true && TP == false) {
@@ -224,20 +199,9 @@ bool Scene::Update(float dt)
 			if (app->render->camera.y > Y) {
 				YPos = 1;
 			}
+			//TODO 3: Move camera using the Xsum and Ysum variables, making sure it doesnt go past the x or y using the XNeg, YNeg, XPos and YPos variables
 			//Move camera X
-			if (app->render->camera.x != X) {
-				app->render->camera.x -= Xsum;
-				if (XNeg != XPos) {
-					app->render->camera.x = X;
-				}
-			}
 			//Move camera Y
-			if (app->render->camera.y != Y) {
-				app->render->camera.y -= Ysum;
-				if (YNeg != YPos) {
-					app->render->camera.y = Y;
-				}
-			}
 		}
 	}
 
