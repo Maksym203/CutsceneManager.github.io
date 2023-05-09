@@ -31,6 +31,7 @@ I have obviously selected to code the CutsceneManager like a In-Engine cutscene 
 
 ### Obstacles
 
+Once I started making the Cutscene Manager module, after adding some functions, I realized the was a big problem, and it was that not only did it not make the execution of the Update function, but also didn't update the camera position. After trying to fix it for a few hours, I decided to make it in the scene, which did fix the problems. I'm guessing the problem was in the module implementation in which something was probably wrongly made.
 
 ## Todo
 
@@ -38,6 +39,7 @@ I have obviously selected to code the CutsceneManager like a In-Engine cutscene 
 
 ## Possible improvements
 
+The main possible improvement would be to code everything into it's own module. Apart from that, I find the this small code part to be enough for what our projects need for these course. Of course, it could be improved adding some filters (making the screen darker or brighter) and some more border variety.
 
 
 ## Conclusion
