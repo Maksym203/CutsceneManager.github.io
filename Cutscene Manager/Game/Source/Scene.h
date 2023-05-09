@@ -57,8 +57,9 @@ private:
 	bool originSelected = false;
 
 	//Cutscene
-	bool CutsceneStarted = false;
-	int fading = 0;
+	bool CutsceneStarted = false, Bordered = false, TP = false, BorderAnimation = false, PosCalc = false;
+	int fading = 0, X,Xdif,Xsum, Y,Ydif,Ysum, Speed = 100, BorderOffset = 0, XNeg, YNeg, XPos, YPos;
+
 
 };
 

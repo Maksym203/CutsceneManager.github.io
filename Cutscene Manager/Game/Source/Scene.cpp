@@ -129,11 +129,71 @@ bool Scene::Update(float dt)
 	app->guiManager->Draw();
 
 	if (app->input->GetKey(SDL_SCANCODE_G) == KEY_DOWN) {
-		StartCutscene(100,100,true,false,100);
+		StartCutscene(-300,100,true,false,50);
 	}
 
 	if (CutsceneStarted == true) {
-
+		//Border animation
+		if (Bordered == true) {
+			app->render->DrawRectangle({ -app->render->camera.x, -app->render->camera.y - 100 + BorderOffset,1280,100 }, 0, 0, 0);
+			app->render->DrawRectangle({ -app->render->camera.x, -app->render->camera.y + 720 - BorderOffset,1280,100 }, 0, 0, 0);
+			if (BorderOffset < 100) {
+				BorderOffset += 2;
+				if (BorderOffset >= 100) {
+					BorderOffset = 100;
+					BorderAnimation = true;
+				}
+			}
+		}
+		//If border animation is done or if theres no border, execute this
+		if (BorderAnimation == true) {
+			//Only done once, to move camera and make sure camera doesnt go away
+			if (PosCalc == false) {
+				Xdif = app->render->camera.x - X;
+				Ydif = app->render->camera.y - Y;
+				Xsum = Xdif / Speed;
+				Ysum = Ydif / Speed;
+				if (app->render->camera.x >= X) {
+					XNeg = 0;
+				}
+				if (app->render->camera.x < X) {
+					XNeg = 1;
+				}
+				if (app->render->camera.y >= Y) {
+					YNeg = 0;
+				}
+				if (app->render->camera.y > Y) {
+					YNeg = 1;
+				}
+				PosCalc = true;
+			}
+			if (app->render->camera.x >= X) {
+				XPos = 0;
+			}
+			if (app->render->camera.x < X) {
+				XPos = 1;
+			}
+			if (app->render->camera.y >= Y) {
+				YPos = 0;
+			}
+			if (app->render->camera.y > Y) {
+				YPos = 1;
+			}
+			//Move camera X
+			if (app->render->camera.x != X) {
+				app->render->camera.x -= Xsum;
+				if (XNeg != XPos) {
+					app->render->camera.x = X;
+				}
+			}
+			//Move camera Y
+			if (app->render->camera.y != Y) {
+				app->render->camera.y -= Ysum;
+				if (YNeg != YPos) {
+					app->render->camera.y = Y;
+				}
+			}
+		}
 	}
 
 	return true;
@@ -141,10 +201,26 @@ bool Scene::Update(float dt)
 
 void Scene::StartCutscene(int x, int y, bool bordered, bool tp, int speed) {
 	CutsceneStarted = true;
+	Bordered = bordered;
+	TP = tp;
+	Speed = speed;
+	X = x;
+	Y = y;
+	if (Bordered == false) {
+		BorderAnimation = true;
+	}
 }
 
 void Scene::EndCutscene() {
 	CutsceneStarted = false;
+	Bordered = false;
+	X = 0;
+	Y = 0;
+	Speed = 100;
+	TP = false;
+	BorderOffset = 0;
+	BorderAnimation = false;
+	PosCalc = false;
 }
 
 // Called each loop iteration
