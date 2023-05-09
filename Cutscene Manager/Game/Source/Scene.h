@@ -38,10 +38,12 @@ public:
 	// Define multiple Gui Event methods
 	bool OnGuiMouseClickEvent(GuiControl* control);
 
-	void StartCutscene(int x, int y, bool bordered, bool tp, int speed);
+	void StartCutscene(int x, int y, bool bordered, bool tp, int speed, bool keepBorders);
 
 	void EndCutscene();
-	
+
+	void FinishCutscene();
+
 public:
 
 	//L02: DONE 3: Declare a Player attribute 
@@ -57,7 +59,7 @@ private:
 	bool originSelected = false;
 
 	//Cutscene
-	bool CutsceneStarted = false, Bordered = false, TP = false, BorderAnimation = false, PosCalc = false;
+	bool CutsceneStarted = false, Bordered = false, TP = false, BorderAnimation = false, PosCalc = false, FadeIn = false, KeepBorders = true, FinishCutsceneAux = false;
 	int fading = 0, X,Xdif,Xsum, Y,Ydif,Ysum, Speed = 100, BorderOffset = 0, XNeg, YNeg, XPos, YPos;
 
 

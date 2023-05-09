@@ -129,12 +129,38 @@ bool Scene::Update(float dt)
 	app->guiManager->Draw();
 
 	if (app->input->GetKey(SDL_SCANCODE_G) == KEY_DOWN) {
-		StartCutscene(-300,100,true,false,50);
+		StartCutscene(-300,-500,true,true,100, true);
+	}
+	if (app->input->GetKey(SDL_SCANCODE_F) == KEY_DOWN) {
+		StartCutscene(-500, 0, true, false, 100, true);
+	}
+	if (app->input->GetKey(SDL_SCANCODE_H) == KEY_DOWN) {
+		StartCutscene(-100, -600, true, false, 100, true);
+	}
+	if (app->input->GetKey(SDL_SCANCODE_J) == KEY_DOWN) {
+		FinishCutscene();
+	}
+
+	//To keep borders in between animations
+	if (KeepBorders == true) {
+		app->render->DrawRectangle({ -app->render->camera.x, -app->render->camera.y - 100 + BorderOffset,1280,100 }, 0, 0, 0);
+		app->render->DrawRectangle({ -app->render->camera.x, -app->render->camera.y + 720 - BorderOffset,1280,100 }, 0, 0, 0);
+	}
+
+	//Border animation to finish cutscene
+	if (FinishCutsceneAux == true) {
+		if (BorderOffset > 0) {
+			BorderOffset -= 2;
+			if (BorderOffset <= 0) {
+				BorderOffset = 0;
+				EndCutscene();
+			}
+		}
 	}
 
 	if (CutsceneStarted == true) {
 		//Border animation
-		if (Bordered == true) {
+		if (Bordered == true && TP == false) {
 			app->render->DrawRectangle({ -app->render->camera.x, -app->render->camera.y - 100 + BorderOffset,1280,100 }, 0, 0, 0);
 			app->render->DrawRectangle({ -app->render->camera.x, -app->render->camera.y + 720 - BorderOffset,1280,100 }, 0, 0, 0);
 			if (BorderOffset < 100) {
@@ -145,8 +171,27 @@ bool Scene::Update(float dt)
 				}
 			}
 		}
+		if (TP == true) {
+			app->render->DrawRectangle({ -app->render->camera.x, -app->render->camera.y,1280,1280 }, 0, 0, 0, fading);
+			if (fading < 255 && FadeIn == false) {
+				fading += 5;
+				if (fading >= 255 ) {
+					fading = 255;
+					app->render->camera.x = X;
+					app->render->camera.y = Y;
+					FadeIn = true;
+				}
+			}
+			if (fading > 0 && FadeIn == true) {
+				fading -= 5;
+				if (fading <= 0) {
+					fading = 0;
+					TP = false;
+				}
+			}
+		}
 		//If border animation is done or if theres no border, execute this
-		if (BorderAnimation == true) {
+		if (BorderAnimation == true && TP == false) {
 			//Only done once, to move camera and make sure camera doesnt go away
 			if (PosCalc == false) {
 				Xdif = app->render->camera.x - X;
@@ -199,15 +244,29 @@ bool Scene::Update(float dt)
 	return true;
 }
 
-void Scene::StartCutscene(int x, int y, bool bordered, bool tp, int speed) {
+void Scene::StartCutscene(int x, int y, bool bordered, bool tp, int speed, bool keepBorders) {
+	if (CutsceneStarted == true) {
+		EndCutscene();
+	}
 	CutsceneStarted = true;
 	Bordered = bordered;
 	TP = tp;
 	Speed = speed;
 	X = x;
 	Y = y;
+	XNeg = -1;
+	XPos = -1;
+	YNeg = -1;
+	YPos = -1;
 	if (Bordered == false) {
 		BorderAnimation = true;
+	}
+	KeepBorders = keepBorders;
+	if (KeepBorders == true) {
+		if (BorderOffset != 0) {
+			BorderAnimation = true;
+			Bordered = false;
+		}
 	}
 }
 
@@ -218,9 +277,18 @@ void Scene::EndCutscene() {
 	Y = 0;
 	Speed = 100;
 	TP = false;
-	BorderOffset = 0;
+	if (KeepBorders == false) {
+		BorderOffset = 0;
+	}
 	BorderAnimation = false;
 	PosCalc = false;
+	fading = 0;
+	FadeIn = false;
+	FinishCutsceneAux = false;
+}
+
+void Scene::FinishCutscene() {
+	FinishCutsceneAux = true;
 }
 
 // Called each loop iteration
