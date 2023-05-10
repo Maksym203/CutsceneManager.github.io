@@ -17,7 +17,7 @@ Cutscenes in videogames were almost born at the same time as the videogames them
 
 The first ever cutscene introduced into a game, was in 1966, in The Sumerian Game which was an early mainframe game. It wasn't exactly a in-game cutscene, as they used a slideshow with some syncronized audio, making a cutscene that was unskippable.
 
-Later in 1979, in Space Invaders Part 2, there wwere introduced some short cutscenes about intermissions between levels. Pac-Man (1980) also did the same thing.
+Later in 1979, in Space Invaders Part 2, there were introduced some short cutscenes about intermissions between levels. Pac-Man (1980) also did the same thing.
 
 It wasn't until 1983, that a similar cutscene  to the ones we know today was introduced in Bega's Battle. It introduced some full-motion video cutscenes between shooting stages, which was normalized years later.
 
